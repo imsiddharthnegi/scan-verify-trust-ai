@@ -26,7 +26,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					variant: 'hsl(var(--primary-variant))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -51,6 +52,19 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				/* TruScan custom colors */
+				trust: {
+					DEFAULT: 'hsl(var(--trust))',
+					foreground: 'hsl(var(--trust-foreground))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
+				},
+				danger: {
+					DEFAULT: 'hsl(var(--danger))',
+					foreground: 'hsl(var(--danger-foreground))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -84,11 +98,53 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				/* TruScan custom animations */
+				float: {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-20px)' }
+				},
+				'pulse-glow': {
+					'0%': { boxShadow: '0 0 20px hsla(var(--primary), 0.3)' },
+					'100%': { boxShadow: '0 0 40px hsla(var(--primary), 0.6)' }
+				},
+				scan: {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(400%)' }
+				},
+				progress: {
+					'0%': { width: '0%' },
+					'100%': { width: '100%' }
+				},
+				fadeInUp: {
+					from: {
+						opacity: '0',
+						transform: 'translateY(30px)'
+					},
+					to: {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				/* TruScan custom animations */
+				float: 'float 6s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+				scan: 'scan 2s linear infinite',
+				progress: 'progress 3s ease-out forwards',
+				fadeInUp: 'fadeInUp 0.6s ease-out'
+			},
+			/* Custom utilities for glassmorphism */
+			backdropBlur: {
+				xs: '2px'
+			},
+			boxShadow: {
+				glass: '0 8px 32px hsla(243, 75%, 59%, 0.1)',
+				glow: '0 0 20px hsla(var(--primary), 0.3)',
+				'glow-lg': '0 0 40px hsla(var(--primary), 0.6)'
 			}
 		}
 	},
