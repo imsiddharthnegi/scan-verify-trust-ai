@@ -1,109 +1,106 @@
 import React from 'react';
-import { Shield, Zap, Eye, CheckCircle, TrendingUp, Users } from 'lucide-react';
+import { Shield, Eye, ArrowRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import TruScanLogo from './TruScanLogo';
 
 const HeroSection: React.FC = () => {
-  const stats = [
-    { icon: CheckCircle, value: '99.2%', label: 'Accuracy Rate' },
-    { icon: TrendingUp, value: '2.1M+', label: 'Scans Performed' },
-    { icon: Users, value: '50K+', label: 'Trusted Users' }
-  ];
-
-  const features = [
-    {
-      icon: Shield,
-      title: 'Deepfake Detection',
-      description: 'Advanced AI algorithms detect facial inconsistencies and manipulation artifacts'
-    },
-    {
-      icon: Eye,
-      title: 'Content Analysis',
-      description: 'Comprehensive analysis of images, videos, audio, and text content'
-    },
-    {
-      icon: Zap,
-      title: 'Real-time Results',
-      description: 'Get instant detection results with detailed confidence scoring'
-    }
-  ];
-
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/20 to-primary/10" />
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Sophisticated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/30 to-primary/20" />
       
-      {/* Floating particles */}
+      {/* Geometric patterns */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-primary rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-trust to-primary rounded-full blur-3xl animate-pulse-glow" style={{animationDelay: '2s'}} />
+      </div>
+
+      {/* Floating particles - more subtle */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-primary/20 rounded-full hero-float"
+            className="absolute w-1 h-1 bg-primary/30 rounded-full hero-float"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 6}s`,
-              animationDuration: `${4 + Math.random() * 4}s`
+              animationDuration: `${6 + Math.random() * 4}s`
             }}
           />
         ))}
       </div>
 
       <div className="relative container mx-auto px-6 py-20">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <div className="flex justify-center mb-8">
-              <TruScanLogo size="xl" />
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fadeInUp">
-              <span className="bg-gradient-to-r from-foreground via-primary to-trust bg-clip-text text-transparent">
-                Detect AI Content
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Main heading */}
+          <div className="mb-8">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fadeInUp">
+              <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+                Secure Your
               </span>
               <br />
-              <span className="bg-gradient-to-r from-trust via-primary to-warning bg-clip-text text-transparent">
-                With Confidence
+              <span className="bg-gradient-to-r from-primary via-trust to-warning bg-clip-text text-transparent">
+                Digital Trust
               </span>
             </h1>
             
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fadeInUp" style={{animationDelay: '0.2s'}}>
-              Advanced AI-powered platform that detects deepfakes, fake news, and manipulated content 
-              with industry-leading accuracy. Protect yourself from misinformation.
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed animate-fadeInUp" style={{animationDelay: '0.2s'}}>
+              Enterprise-grade AI detection platform that identifies deepfakes, manipulated media, 
+              and synthetic content with unmatched precision. Built for organizations that demand certainty.
             </p>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp" style={{animationDelay: '0.4s'}}>
-              <Button variant="hero" size="xl" className="group">
-                <Shield className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-                Start Scanning Now
-              </Button>
-              <Button variant="glass" size="xl">
-                <Eye className="w-5 h-5" />
-                Watch Demo
-              </Button>
+          {/* CTA Section */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fadeInUp" style={{animationDelay: '0.4s'}}>
+            <Button variant="hero" size="xl" className="group min-w-64">
+              <Shield className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              Start Free Analysis
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            
+            <Button variant="glass" size="xl" className="group min-w-64">
+              <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              Watch Platform Demo
+            </Button>
+          </div>
+
+          {/* Trust indicators */}
+          <div className="mt-16 animate-fadeInUp" style={{animationDelay: '0.6s'}}>
+            <p className="text-sm text-muted-foreground mb-8 uppercase tracking-wider font-medium">
+              Trusted by Leading Organizations
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-12 opacity-60">
+              {['Government', 'Media', 'Financial', 'Legal', 'Education'].map((sector) => (
+                <div key={sector} className="text-lg font-semibold text-muted-foreground hover:text-foreground transition-smooth">
+                  {sector}
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 animate-fadeInUp" style={{animationDelay: '0.6s'}}>
-            {stats.map((stat, index) => (
-              <div key={index} className="glass-card text-center hover:scale-105 transition-spring">
-                <stat.icon className="w-8 h-8 text-primary mx-auto mb-4" />
-                <div className="text-3xl font-bold text-foreground mb-2">{stat.value}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-fadeInUp" style={{animationDelay: '0.8s'}}>
-            {features.map((feature, index) => (
-              <div key={index} className="glass-card hover:scale-105 transition-spring group">
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 group-hover:shadow-glow transition-smooth">
-                  <feature.icon className="w-6 h-6 text-white" />
+          {/* Value proposition cards */}
+          <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 animate-fadeInUp" style={{animationDelay: '0.8s'}}>
+            {[
+              {
+                title: 'Enterprise Security',
+                description: 'Bank-level encryption and compliance with international security standards'
+              },
+              {
+                title: 'Real-Time Analysis',
+                description: 'Instant detection results with comprehensive confidence scoring and reporting'
+              },
+              {
+                title: 'Scalable Integration',
+                description: 'RESTful APIs and SDKs for seamless integration into existing workflows'
+              }
+            ].map((feature, index) => (
+              <div key={index} className="glass-card hover:scale-105 transition-spring group text-left">
+                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-6 group-hover:shadow-glow transition-smooth">
+                  <Shield className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
+                <h3 className="text-xl font-semibold mb-4 text-foreground">{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
